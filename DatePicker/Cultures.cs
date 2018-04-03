@@ -23,7 +23,7 @@ namespace DatePicker
                                   }, "ق.ظ. ", "ب.ظ. ", "yyyy/MM/dd", new PersianCalendar());
         }
 
-        public static void InitializeCulture(string culture, string[] abbreviatedDayNames, string[] dayNames,
+        private static void InitializeCulture(string culture, string[] abbreviatedDayNames, string[] dayNames,
                                              string[] abbreviatedMonthNames, string[] monthNames, string amDesignator,
                                              string pmDesignator, string shortDatePattern, Calendar calendar)
         {

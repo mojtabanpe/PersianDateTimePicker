@@ -9,7 +9,9 @@ namespace DatePicker
     public partial class DateTimePicker : UserControl
     {
 
-        private EventHandler OnSelectedDateChanged;
+        public EventHandler OnSelectedDateChanged;
+
+        public EventHandler OnDateDoubleClick;
 
         private int _currentYear = 0;
         private int _currentMonth = 0;
@@ -19,9 +21,18 @@ namespace DatePicker
             InitializeComponent();
 
             dgv_Calenar.CurrentCellChanged += Dgv_Calenar_CurrentCellChanged;
-
+            dgv_Calenar.CellDoubleClick += Dgv_Calenar_CellDoubleClick;
             SelectedDate = DateTime.Now;
         }
+
+        private void Dgv_Calenar_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (OnDateDoubleClick != null)
+            {
+                OnDateDoubleClick(this,new EventArgs());
+            }
+        }
+
         private void Dgv_Calenar_CurrentCellChanged(object sender, EventArgs e)
         {
             if (dgv_Calenar.CurrentCell != null && dgv_Calenar.CurrentCell.Tag != null)
@@ -126,7 +137,7 @@ namespace DatePicker
         private void DateTimePicker_Load(object sender, EventArgs e)
         {
             var calendar = new PersianCalendar();
-            FillGridDays(calendar.GetYear(DateTime.Now), calendar.GetMonth(DateTime.Now));
+            FillGridDays(calendar.GetYear(SelectedDate), calendar.GetMonth(SelectedDate));
         }
         private void btn_NextYear_Click(object sender, EventArgs e)
         {

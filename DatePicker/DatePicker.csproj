@@ -37,8 +37,10 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cultures.cs" />
@@ -47,6 +49,18 @@
     </Compile>
     <Compile Include="DateTimePicker.Designer.cs">
       <DependentUpon>DateTimePicker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dropdown.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Dropdown.Designer.cs">
+      <DependentUpon>Dropdown.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="frm_Show.cs">
       <SubType>Form</SubType>
@@ -58,6 +72,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="DateTimePicker.resx">
       <DependentUpon>DateTimePicker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dropdown.resx">
+      <DependentUpon>Dropdown.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_Show.resx">
       <DependentUpon>frm_Show.cs</DependentUpon>
@@ -87,6 +107,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="calendar.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DatetimeExtensions\DatetimeExtensions.csproj">
+      <Project>{50052df6-13e2-4495-983e-15dfd7c0fa20}</Project>
+      <Name>DatetimeExtensions</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
