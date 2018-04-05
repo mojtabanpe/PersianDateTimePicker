@@ -5,9 +5,9 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{5123786E-3870-4B29-A1E6-5DBF6E321057}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
-    <RootNamespace>DatePicker</RootNamespace>
-    <AssemblyName>DatePicker</AssemblyName>
+    <OutputType>Library</OutputType>
+    <RootNamespace>DateTimePicker</RootNamespace>
+    <AssemblyName>DateTimePicker</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -33,6 +33,9 @@
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>calendar.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
