@@ -1,13 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using ExtensionsMethod;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using ExtensionsMethod;
 
 namespace DatePicker
 {
@@ -17,18 +10,16 @@ namespace DatePicker
         {
             InitializeComponent();
         }
-
         protected override void OnLoad(EventArgs e)
         {
-            
-            dropdown1.Value = DateTime.Now.ToString("yyyy/MM/dd");
             dropdown1.inputMask = "0000/00/00";
+            dropdown1.Value = DateTime.Now.ToString("yyyy/MM/dd");
             dropdown1.RightToLeft = RightToLeft.No;
             dropdown1.OnValueChanged += (obj, args) =>
-                  {
-                      dropdown1.Tag = dropdown1.Value.ConvertToDate();
+            {
+                dropdown1.Tag = dropdown1.Value.ConvertToDate(); 
 
-                  };
+            };
             dropdown1.getDropdownControl += () =>
             {
                 var picker = new DateTimePicker();

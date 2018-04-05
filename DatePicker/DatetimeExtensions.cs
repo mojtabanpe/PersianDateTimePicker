@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ExtensionsMethod
 {
-    public static class DatetimeExtensions
+    public static class DateTimeExtensions
     {
         public static DateTime? ConvertToDate(this string input)
         {
@@ -21,8 +17,6 @@ namespace ExtensionsMethod
             catch (Exception)
             {
                 return null;
-
-                throw;
             }
         }
     }

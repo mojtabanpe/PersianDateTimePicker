@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace DatePicker
@@ -18,10 +12,10 @@ namespace DatePicker
         public Dropdown()
         {
             InitializeComponent();
-            txtInputDropdown.TextAlignChanged += TxtInputDropdown_TextAlignChanged;
+            txtInputDropdown.TextChanged += TxtInputDropdown_TextChanged;
         }
 
-        private void TxtInputDropdown_TextAlignChanged(object sender, EventArgs e)
+        private void TxtInputDropdown_TextChanged(object sender, EventArgs e)
         {
             if (OnValueChanged != null)
             {
@@ -38,8 +32,8 @@ namespace DatePicker
 
         public string inputMask
         {
-            get { return txtInputDropdown.Text; }
-            set { txtInputDropdown.Text = value; }
+            get { return txtInputDropdown.Mask; }
+            set { txtInputDropdown.Mask = value; }
         }
 
         public Func<Control> getDropdownControl;

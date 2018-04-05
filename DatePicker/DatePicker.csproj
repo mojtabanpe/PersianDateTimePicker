@@ -37,13 +37,12 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cultures.cs" />
+    <Compile Include="DateTimeExtensions.cs" />
     <Compile Include="DateTimePicker.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -107,12 +106,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="calendar.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DatetimeExtensions\DatetimeExtensions.csproj">
-      <Project>{50052df6-13e2-4495-983e-15dfd7c0fa20}</Project>
-      <Name>DatetimeExtensions</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
