@@ -8,35 +8,32 @@ namespace DatePicker
     {
         private Form dropdownForm;
 
-        public event EventHandler OnValueChanged;
+        public Func<Control> getDropdownControl;
+
         public Dropdown()
         {
             InitializeComponent();
             txtInputDropdown.TextChanged += TxtInputDropdown_TextChanged;
         }
 
-        private void TxtInputDropdown_TextChanged(object sender, EventArgs e)
-        {
-            if (OnValueChanged != null)
-            {
-                OnValueChanged(this, new EventArgs());
-            }
-        }
-
         public string Value
         {
-            get { return txtInputDropdown.Text; }
-            set { txtInputDropdown.Text = value; }
-
+            get => txtInputDropdown.Text;
+            set => txtInputDropdown.Text = value;
         }
 
         public string inputMask
         {
-            get { return txtInputDropdown.Mask; }
-            set { txtInputDropdown.Mask = value; }
+            get => txtInputDropdown.Mask;
+            set => txtInputDropdown.Mask = value;
         }
 
-        public Func<Control> getDropdownControl;
+        public event EventHandler OnValueChanged;
+
+        private void TxtInputDropdown_TextChanged(object sender, EventArgs e)
+        {
+            if (OnValueChanged != null) OnValueChanged(this, new EventArgs());
+        }
 
         private void btnDropdown_Click(object sender, EventArgs e)
         {
@@ -54,23 +51,21 @@ namespace DatePicker
                 dropdownForm.Controls.Add(control);
                 control.Dock = DockStyle.Fill;
             }
+
             dropdownForm.Show();
             dropdownForm.Deactivate += (s, args) =>
             {
                 dropdownForm.Close();
                 dropdownForm = null;
             };
-            screenLocation.Y += this.Height;
+            screenLocation.Y += Height;
             screenLocation.X = screenLocation.X + (Width - dropdownForm.Width);
             dropdownForm.Location = screenLocation;
         }
 
         public void closeDropdown()
         {
-            if (dropdownForm != null)
-            {
-                dropdownForm.Close();
-            }
+            if (dropdownForm != null) dropdownForm.Close();
         }
     }
 }

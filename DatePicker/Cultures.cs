@@ -9,23 +9,23 @@ namespace DatePicker
     {
         public static void InitializePersianCulture()
         {
-            InitializeCulture("fa-ir", new[] { "ی", "د", "س", "چ", "پ", "ج", "ش" },
-                              new[] { "یکشنبه", "دوشنبه", "سه شنبه", "چهارشنبه", "پنجشنبه", "جمعه", "شنبه" },
-                              new[]
-                                  {
-                                      "فروردین", "اردیبهشت", "خرداد", "تیر", "مرداد", "شهریور", "مهر", "آبان", "آذر", "دی",
-                                      "بهمن", "اسفند", ""
-                                  },
-                              new[]
-                                  {
-                                      "فروردین", "اردیبهشت", "خرداد", "تیر", "مرداد", "شهریور", "مهر", "آبان", "آذر", "دی",
-                                      "بهمن", "اسفند", ""
-                                  }, "ق.ظ. ", "ب.ظ. ", "yyyy/MM/dd", new PersianCalendar());
+            InitializeCulture("fa-ir", new[] {"ی", "د", "س", "چ", "پ", "ج", "ش"},
+                new[] {"یکشنبه", "دوشنبه", "سه شنبه", "چهارشنبه", "پنجشنبه", "جمعه", "شنبه"},
+                new[]
+                {
+                    "فروردین", "اردیبهشت", "خرداد", "تیر", "مرداد", "شهریور", "مهر", "آبان", "آذر", "دی",
+                    "بهمن", "اسفند", ""
+                },
+                new[]
+                {
+                    "فروردین", "اردیبهشت", "خرداد", "تیر", "مرداد", "شهریور", "مهر", "آبان", "آذر", "دی",
+                    "بهمن", "اسفند", ""
+                }, "ق.ظ. ", "ب.ظ. ", "yyyy/MM/dd", new PersianCalendar());
         }
 
         private static void InitializeCulture(string culture, string[] abbreviatedDayNames, string[] dayNames,
-                                             string[] abbreviatedMonthNames, string[] monthNames, string amDesignator,
-                                             string pmDesignator, string shortDatePattern, Calendar calendar)
+            string[] abbreviatedMonthNames, string[] monthNames, string amDesignator,
+            string pmDesignator, string shortDatePattern, Calendar calendar)
         {
             var calture = new CultureInfo(culture);
             var info = calture.DateTimeFormat;
@@ -39,10 +39,12 @@ namespace DatePicker
             info.FirstDayOfWeek = DayOfWeek.Saturday;
             var cal = calendar;
             var type = typeof(DateTimeFormatInfo);
-            var fieldInfo = type.GetField("calendar", BindingFlags.Public | BindingFlags.Instance | BindingFlags.NonPublic);
+            var fieldInfo = type.GetField("calendar",
+                BindingFlags.Public | BindingFlags.Instance | BindingFlags.NonPublic);
             if (fieldInfo != null)
                 fieldInfo.SetValue(info, cal);
-            var field = typeof(CultureInfo).GetField("calendar", BindingFlags.Public | BindingFlags.Instance | BindingFlags.NonPublic);
+            var field = typeof(CultureInfo).GetField("calendar",
+                BindingFlags.Public | BindingFlags.Instance | BindingFlags.NonPublic);
             if (field != null)
                 field.SetValue(calture, cal);
             Thread.CurrentThread.CurrentCulture = calture;
@@ -51,5 +53,4 @@ namespace DatePicker
             CultureInfo.CurrentUICulture.DateTimeFormat = info;
         }
     }
-
 }

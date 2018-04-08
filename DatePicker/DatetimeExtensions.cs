@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 
 namespace ExtensionsMethod
 {
@@ -12,7 +13,7 @@ namespace ExtensionsMethod
                 var startDateMonth = input.Split('/')[1];
                 var startDateDay = input.Split('/')[2];
                 return new DateTime(int.Parse(startDateYear), int.Parse(startDateMonth), int.Parse(startDateDay),
-                    new System.Globalization.PersianCalendar());
+                    new PersianCalendar());
             }
             catch (Exception)
             {
